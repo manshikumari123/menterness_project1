@@ -1,0 +1,17 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+# Load the dataset (assuming it's in CSV format)
+data = pd.read_csv('/content/goldstock.csv')
+
+# Convert 'Date' column to datetime format
+data['Date'] = pd.to_datetime(data['Date'])
+
+# Plotting daily closing prices
+plt.figure(figsize=(12, 6))
+plt.plot(data['Date'], data['Close'], marker='o', linestyle='-')
+plt.title('Daily Gold Closing Prices')
+plt.xlabel('Date')
+plt.ylabel('Price (USD)')
+plt.grid(True)
+plt.show()
